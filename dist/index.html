@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=""/>
     <link rel="icon" href="favicon.png"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/0style.css"/>
 </head>
 <body>
 <header class="header">
@@ -476,7 +476,7 @@
             <div class="our-work__help-for-you">
                 <h3 class="our-work__help-banner">Не знаете, как расставить мебель и какой стиль выбрать?</h3>
                 <p>Получите бесплатную консультацию дизайнера.</p>
-                <form action="main.php" class="our-work__help-form">
+                <form action="./main.php" class="our-work__help-form" method="post">
                     <input type="hidden" name="site_form_id" value="help-form">
                     <input type="hidden" name="sait" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>">
                     <input type="hidden" name="1_referer" value="<?= base64_encode($_SERVER['REFERER'])  ?>"/>
