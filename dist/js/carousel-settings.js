@@ -31,8 +31,8 @@ $(document).ready(function(){
         autoplay: false,
         slide: ".our-work__mobile-item",
         arrows: true,
-        /*   prevArrow:$(".our-work__previous-button-mobile"),
-           nextArrow:$(".our-work__next-button-mobile"),*/
+        prevArrow:$(".our-work__previous-button-mobile"),
+        nextArrow:$(".our-work__next-button-mobile"),
         slidesToShow: 1,
         slidesToScroll: 1,
         /*responsive: [

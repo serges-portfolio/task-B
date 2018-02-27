@@ -22,7 +22,7 @@
             <li class="header__link">
                 <a href="#">Наши работы</a>
             </li>
-            <li class="header__link">
+            <li class="header__link show-popup">
                 <a href="#">Калькулятор</a>
             </li>
             <li class="header__link">
@@ -34,7 +34,7 @@
         </ul>
         <div class="header__call-us">
             <p class="header__number">+7(495)151-86-20</p>
-            <button class="header__callback">Заказать звонок</button>
+            <button class="header__callback show-popup">Заказать звонок</button>
         </div>
     </nav>
     <section class="header__design-project">
@@ -47,12 +47,24 @@
                 <li class="header__offer-item">Полный комплект чертежей</li>
             </ul>
         </div>
-        <div class="header__calculate-cost">
+        <form action="./mail.php" class="header__calculate-cost">
+            <input type="hidden" name="site_form_id" value="calculate">
+            <input type="hidden" name="sait" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>">
+            <input type="hidden" name="1_referer" value="<?= base64_encode($_SERVER['REFERER'])  ?>"/>
+            <input type="hidden" name="ip_lida" value="<?=$_SERVER['REMOTE_ADDR'];?>">
+            <input type="hidden" name="utm_source" value="<?=$_GET[utm_source];?>">
+            <input type="hidden" name="utm_medium" value="<?=$_GET[utm_medium];?>">
+            <input type="hidden" name="utm_campaign" value="<?=$_GET[utm_campaign];?>">
+            <input type="hidden" name="utm_term" value="<?=$_GET[utm_term];?>">
+            <input type="hidden" name="utm_content" value="<?=$_GET[utm_content];?>">
+            <input type="hidden" name="utm_keyword" value="<?=$_GET[keyword];?>">
+            <input type="hidden" name="str_perehoda" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>">
+            <input type="hidden" name="metka" value="<?=$_GET[utm_m];?>">
             <div class="header__range-container">
                 <p class="header__indicate-area">Укажите площадь помещения</p>
-                <span id="range-value" class="header__range-value"></span>
+                <output for="rangeNumber" id="range-value" class="header__range-value">72</output>
                 <p class="header__quad-meter">м<sup>2</sup></p>
-                <input type="range" min="1" max="300" step="1" value="150" oninput="myFunction()" id="rangeNumber"
+                <input type="range" min="1" max="300" step="1" value="72" oninput="myFunction()" id="rangeNumber"
                        class="header__slider">
             </div>
             <div class="header__rooms-quantity header__choice-parametres">
@@ -105,7 +117,7 @@
             <div class="header__submit-container">
                 <button type="button">Рассчитать стоимость</button>
             </div>
-        </div>
+        </form>
     </section>
 </header>
 <main class="our-work">
@@ -159,10 +171,17 @@
 <!--____slider-mobile_____-->
         <div class="our-work__slider-mobile-container">
         <div class="our-work__slider-mobile">
-            <!--<button type="button" class="our-work__buttons-mobile our-work__previous-button-mobile">
+
+
+
+            <button type="button" class="our-work__buttons our-work__previous-button-mobile">
             </button>
-            <button type="button" class="our-work__buttons-mobile our-work__next-button-mobile">
-            </button>-->
+            <button type="button" class="our-work__buttons our-work__next-button-mobile">
+            </button>
+
+
+
+
             <div class="our-work__grid-item our-work__mobile-item">
                 <img src="./assets/works1.png" alt="flat1" class="our-work__flat">
                 <div class="our-work__design-style">
@@ -192,6 +211,17 @@
             </div>
         </div>
         <div class="our-work__slider-mobile">
+
+
+
+            <button type="button" class="our-work__buttons our-work__previous-button-mobile">
+            </button>
+            <button type="button" class="our-work__buttons our-work__next-button-mobile">
+            </button>
+
+
+
+
             <div class="our-work__grid-item our-work__mobile-item">
                 <img src="./assets/works4.png" alt="flat4" class="our-work__flat">
                 <div class="our-work__design-style">
@@ -219,6 +249,19 @@
             </div>
         </div>
         <div class="our-work__slider-mobile">
+
+
+
+
+            <button type="button" class="our-work__buttons our-work__previous-button-mobile">
+            </button>
+            <button type="button" class="our-work__buttons our-work__next-button-mobile">
+            </button>
+
+
+
+
+
             <div class="our-work__grid-item our-work__mobile-item">
                 <img src="./assets/works7.png" alt="flat7" class="our-work__flat">
                 <div class="our-work__design-style">
@@ -262,7 +305,7 @@
 
                 <div class="our-work__grid-item grid-item living">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span class="">Смотреть</span>
                         </div>
@@ -274,7 +317,7 @@
                 </div>
                 <div class="our-work__grid-item grid-item living">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -286,7 +329,7 @@
                 </div>
                 <div class="our-work__grid-item grid-item sleep">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -298,7 +341,7 @@
                 </div>
                 <div class="our-work__grid-item grid-item sleep">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -310,7 +353,7 @@
                 </div>
                 <div class="our-work__grid-item grid-item sleep">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -323,7 +366,7 @@
 
                 <div class="our-work__grid-item grid-item child">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -335,7 +378,7 @@
                 </div>
                 <div class="our-work__grid-item grid-item child">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -347,7 +390,7 @@
                 </div>
                 <div class="our-work__grid-item grid-item bathroom">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -359,7 +402,7 @@
                 </div>
                 <div class="our-work__grid-item grid-item kitchen">
                     <div class="our-work__design-style">
-                        <div class="our-work__look">
+                        <div class="our-work__look show-popup">
                             <img src="./assets/see.svg" alt="see">
                             <span>Смотреть</span>
                         </div>
@@ -421,7 +464,7 @@
             <div class="our-work__help-for-you">
                 <h3 class="our-work__help-banner">Не знаете, как расставить мебель и какой стиль выбрать?</h3>
                 <p class="rates__take-consult">Получите бесплатную консультацию дизайнера.</p>
-                <form action="./mail.php" class="our-work__help-form" method="post">
+                <form action="./mail.php" class="our-work__help-form" method="post" id="help_form">
                     <input type="hidden" name="site_form_id" value="help-form">
                     <input type="hidden" name="sait" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>">
                     <input type="hidden" name="1_referer" value="<?= base64_encode($_SERVER['REFERER'])  ?>"/>
@@ -434,9 +477,12 @@
                     <input type="hidden" name="utm_keyword" value="<?=$_GET[keyword];?>">
                     <input type="hidden" name="str_perehoda" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>">
                     <input type="hidden" name="metka" value="<?=$_GET[utm_m];?>">
-
+                    <label for="name-client" class="our-work__label">
                     <input type="text" id="name-client" class="our-work__enter-input" name="ima_kl" placeholder="Введите ваше имя">
+                    </label>
+                    <label for="phone-client" class="our-work__label">
                     <input type="tel" id="phone-client" class="our-work__enter-input" name="telefon_lida" placeholder="Введите телефон">
+                    </label>
                     <button type="submit" class="our-work__calculate-cost">Расчитать стоимость</button>
                 </form>
             </div>
@@ -554,7 +600,7 @@
                 ремонта</div>
             <div>300 руб./м²</div>
             <div>
-                <button class="rates__order-button">Заказать дизайн-проект</button>
+                <button class="rates__order-button show-popup">Заказать дизайн-проект</button>
             </div>
         </div>
 
@@ -572,7 +618,7 @@
                 строителям</div>
             <div>900 руб./м²</div>
             <div>
-                <button class="rates__order-button">Заказать дизайн-проект</button>
+                <button class="rates__order-button show-popup">Заказать дизайн-проект</button>
             </div>
         </div>
 
@@ -590,7 +636,7 @@
                 «под ключ»</div>
             <div>1500 руб./м²</div>
             <div>
-                <button class="rates__order-button">Заказать дизайн-проект</button>
+                <button class="rates__order-button show-popup">Заказать дизайн-проект</button>
             </div>
         </div>
 
@@ -608,7 +654,7 @@
                 ремонта</div>
             <div>2000 руб./м²</div>
             <div>
-                <button class="rates__order-button">Заказать дизайн-проект</button>
+                <button class="rates__order-button show-popup">Заказать дизайн-проект</button>
             </div>
         </div>
     </section>
@@ -701,13 +747,13 @@
     </section>
     <section class="rates__include-doc-form">
         <div class="rates__include-items">
-            <img src="./assets/help2.png" alt="book-img" class="rates__doc-book">
+            <img src="./assets/help-2s.png" alt="book-img" class="rates__doc-book">
             <ul class="rates__what-include">
                 <li>как влияет проектная документация на процесс ремонта</li>
                 <li>что такое техническое задание и обмерный план</li>
                 <li>что включает стандартный пакет чертежей</li>
             </ul>
-            <form action="./mail.php" method="post" class="rates__request-documentation">
+            <form action="./mail.php" method="post" class="rates__request-documentation" id="document_form">
                 <h5 class="rates__form-banner">Заполните форму, и мы
                     вышлем материал на почту
                 </h5>
@@ -724,9 +770,15 @@
                 <input type="hidden" name="str_perehoda" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>">
                 <input type="hidden" name="metka" value="<?=$_GET[utm_m];?>">
 
-                <input type="text" placeholder="Введите ваше имя" class="rates__form-input" id="help-doc-name" name="help-doc-name">
-                <input type="tel" placeholder="Введите ваш телефон" class="rates__form-input" id="help-doc-phone" name="help-doc-phone" checked>
-                <input type="email" placeholder="Ваша почта" class="rates__form-input" id="help-doc-email" name="help-doc-email" checked>
+                <label for="help-doc-name" class="rates__label">
+                <input type="text" placeholder="Введите ваше имя" class="rates__form-input" id="help-doc-name" name="help_doc_name">
+                </label>
+                <label for="help-doc-phone" class="rates__label">
+                <input type="tel" placeholder="Введите ваш телефон" class="rates__form-input" id="help-doc-phone" name="help_doc_phone" checked>
+                </label>
+                <label for="help-doc-email" class="rates__label">
+                <input type="email" placeholder="Ваша почта" class="rates__form-input" id="help-doc-email" name="help_doc_email" checked>
+                </label>
                 <button type="submit" class="rates__give-doc-button">Получить материал</button>
             </form>
         </div>
@@ -826,7 +878,7 @@
                 </p>
             </div>
         </div>
-        <button class="rates__sum-button">Заказать консультацию</button>
+        <button class="rates__sum-button show-popup">Заказать консультацию</button>
     </section>
 </article>
 <footer class="footer">
@@ -857,7 +909,7 @@
                     <div class="footer__main-questions">
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Зачем нужен дизайн-проект?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view">
                             <label class="footer__click-me" for="view">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -868,7 +920,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">От чего зависит цена дизайн-проекта?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view2">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view2">
                             <label class="footer__click-me" for="view2">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -879,7 +931,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Сколько раз можно вносить правки?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view3">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view3">
                             <label class="footer__click-me" for="view3">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -890,7 +942,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Можно ли через вас заказать ремонт?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view4">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view4">
                             <label class="footer__click-me" for="view4">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -901,7 +953,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Какие проекты вы уже реализовали?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view5">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view5">
                             <label class="footer__click-me" for="view5">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -915,7 +967,7 @@
                     <div class="footer__other-questions">
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Дизайн-проект нужен только для сложного дизайна?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view6">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view6">
                             <label class="footer__click-me" for="view6">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -926,7 +978,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Сколько времени займет создание дизайн-проекта?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view7">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view7">
                             <label class="footer__click-me" for="view7">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -937,7 +989,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Можно ли быстрее?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view8">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view8">
                             <label class="footer__click-me" for="view8">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -948,7 +1000,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Дизайн-проект нужен только для сложного дизайна?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view9">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view9">
                             <label class="footer__click-me" for="view9">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -959,7 +1011,7 @@
                         </div>
                         <div class="footer__ask-block">
                             <h6 class="footer__question">Сколько времени займет создание дизайн-проекта?</h6>
-                            <input type="checkbox" class="footer__checkbox" id="view10">
+                            <input type="radio" name="toggleQuestion" class="footer__checkbox" id="view10">
                             <label class="footer__click-me" for="view10">menu</label>
                             <p class="footer__answer">Чтобы ремонт получится таким, как ожидается. Дизайн-проект
                                 включает в себя точный план расстановки мебели, визуализацию,
@@ -978,10 +1030,16 @@
             <h3 class="footer__questions-banner">Задайте нам свой вопрос</h3>
             <p class="footer__leave-message">Не нашли ответ на свой вопрос? Оставьте сообщение
                 и менеджер перезвонит в течение 3-х минут.</p>
-            <form action="./mail.php" class="footer__callback-form">
-                <input type="text" placeholder="Введите ваше имя" class="footer__callback-input" name="callback-name" id="callback-name" checked>
-                <input type="text" placeholder="Ваш вопрос" class="footer__callback-input" name="callback-question" id="callback-question" checked>
-                <input type="tel" placeholder="Введите телефон" class="footer__callback-input" name="callback-tel" id="callback-tel" checked>
+            <form action="./mail.php" method="post" class="footer__callback-form" id="question_form">
+                <label for="callback-name" class="footer__label">
+                <input type="text" placeholder="Введите ваше имя" class="footer__callback-input" name="callback_name" id="callback-name" checked>
+                </label>
+                <label for="callback-question" class="footer__label -question">
+                <input type="text" placeholder="Ваш вопрос" class="footer__callback-input -big" name="callback_question" id="callback-question" checked>
+                </label>
+                <label for="callback-tel" class="footer__label">
+                <input type="tel" placeholder="Введите телефон" class="footer__callback-input" name="callback_tel" id="callback-tel" checked>
+                </label>
                 <button type="submit" class="footer__send-button">Отправить заявку</button>
                 <input type="hidden" name="site_form_id" value="questions-form">
                 <input type="hidden" name="sait" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];?>">
@@ -1026,17 +1084,15 @@
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script src="js/isotope-settings.js"></script>
-<script src="js/Range.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
 <script src="js/masonry.pkgd.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/carousel-settings.js"></script>
-<script src="js/select-rates.js"></script>
-<script src="js/popup.js"></script>
-<script src="js/masonry.pkgd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
-<script src="js/input-mask.js"></script>
+<script src="js/popup,calc.js"></script>
+<script src="js/input-mask,validator,rates.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBzivyiXOgLjv-MaKuJkjNl5kk3dchM4c&callback=initMap" async defer></script>
 <script src="js/map-settings.js"></script>
 </body>

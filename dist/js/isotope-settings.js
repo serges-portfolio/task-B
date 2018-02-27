@@ -1,13 +1,21 @@
 (() => {
     function useIsotope(event) {
 
-        let isotopeGrid = new Isotope( '.grid', {
-            itemSelector: '.grid-item',
+        let isotopeGrid = new Isotope( '.our-work__grid', {
+            itemSelector: '.our-work__grid-item',
             percentPosition: true,
             masonry: {
-                columnWidth: '.sizer',
+                columnWidth: '.grid-sizer',
                 gutter: 30
-            }
+            },
+            layoutMode: 'fitRows',
+            fitRows: {
+                gutter: 30
+            }/*,
+            cellsByRow: {
+                columnWidth: 1200,
+                rowHeight: 400
+            }*/
         });
 
         let applyFilterFromLink = (linkObject) => {
@@ -39,3 +47,10 @@
 
     document.addEventListener('DOMContentLoaded', useIsotope);
 })();
+
+
+
+
+
+
+
